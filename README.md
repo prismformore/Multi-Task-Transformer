@@ -8,7 +8,7 @@ This repository implements our ECCV2022 paper InvPT:
 > [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [Inverted Pyramid Multi-task Transformer for Dense Scene Understanding](https://arxiv.org/abs/2203.07997). 
 > The Hong Kong University of Science and Technology (HKUST)
 
-InvPT proposes a novel end-to-end Inverted Pyramid multi-task Transformer to perform a **simultaneous modeling of spatial positions and multiple tasks in a unified framework**. InvPT presents an efficient UP-Transformer block to learn multi-task feature interaction at gradually increased resolutions, which also incorporates effective self-attention message passing and multi-scale feature aggregation to produce task-specific prediction at a high resolution. InvPT achieves superior performance on NYUD-v2 and PASCAL-Context datasets respectively, and **significantly outperforms previous state-of-the-arts**.
+InvPT proposes a novel end-to-end Inverted Pyramid multi-task Transformer to perform **simultaneous modeling of spatial positions and multiple tasks in a unified framework**. InvPT presents an efficient UP-Transformer block to learn multi-task feature interaction at gradually increased resolutions, which also incorporates effective self-attention message passing and multi-scale feature aggregation to produce task-specific prediction at a high resolution. InvPT achieves superior performance on NYUD-v2 and PASCAL-Context datasets respectively, and **significantly outperforms previous state-of-the-arts**.
 
 ## News
 :triangular_flag_on_post: **Updates** 
@@ -17,7 +17,7 @@ InvPT proposes a novel end-to-end Inverted Pyramid multi-task Transformer to per
 # :sunglasses: Demo
 
 [![Watch the video](davis_shot.jpg)](https://youtu.be/XxSZUkknHII)
-To qualitatively demonstrate the powerful performance and generalization ability of our multi-task model *InvPT*, we further examine its multi-task prediction performance  for dense scene understanding in the new scenes. Specifically, we train InvPT on PASCAL-Context dataset (with 4,998 training image) and generate prediction results of the video frames in [DAVIS](https://davischallenge.org/) dataset without any fine-tuning. InvPT yields good performance on new dataset with distinct data distribution.
+To qualitatively demonstrate the powerful performance and generalization ability of our multi-task model *InvPT*, we further examine its multi-task prediction performance  for dense scene understanding in the new scenes. Specifically, we train InvPT on PASCAL-Context dataset (with 4,998 training images) and generate prediction results of the video frames in [DAVIS](https://davischallenge.org/) dataset without any fine-tuning. InvPT yields good performance on the new dataset with distinct data distribution.
 **Watch the demo [here](https://youtu.be/XxSZUkknHII)!**
 
 # :grinning: Train your **InvPT**!
@@ -45,12 +45,12 @@ And then extract the datasets by:
 tar xfvz NYUDv2.tar.gz
 tar xfvz PASCALContext.tar.gz
 ```
-You need to specify the dataset directory as ```db_root``` varaible in ```./configs/mypath.py``` inside the ```code``` directory.
+You need to specify the dataset directory as ```db_root``` variable in ```./configs/mypath.py``` inside the ```code``` directory.
 
 ## 3. Train the model
-The config files are defined in ```./configs```  in the ```code``` directory, output directory is also defined in your config file.
+The config files are defined in ```./configs```  in the ```code``` directory, the output directory is also defined in your config file.
 
-As an example, we provide the training script of the best performaning model of InvPT with Vit-L backbone. To start training, you simply need to go into ```code``` directory and run:
+As an example, we provide the training script of the best performing model of InvPT with Vit-L backbone. To start training, you simply need to go into ```code``` directory and run:
 ```bash
 bash run.sh
 ```
@@ -64,10 +64,10 @@ For inferring with pre-trained models, you need to change ```run_mode``` in ```r
 ### **Special evaluation for boundary detection**
 We follow previous works and use Matlab-based [SEISM](https://github.com/jponttuset/seism) project to compute the optimal dataset F-measure scores. The evaluation code will save the boundary detection predictions on the disk. 
 
-Specifically, identical to ATRC and ASTMT, we use [maxDist](https://github.com/jponttuset/seism/blob/6af0cad37d40f5b4cbd6ca1d3606ec13b176c351/src/scripts/eval_method.m#L34)=0.0075 for PASCAL-Context and maxDist=0.011 for NYUD-v2. Thresholds for HED (under seism/parameters/HED.txt) is used. ```read_one_cont_png``` is used as IO function in SEISM.
+Specifically, identical to ATRC and ASTMT, we use [maxDist](https://github.com/jponttuset/seism/blob/6af0cad37d40f5b4cbd6ca1d3606ec13b176c351/src/scripts/eval_method.m#L34)=0.0075 for PASCAL-Context and maxDist=0.011 for NYUD-v2. Thresholds for HED (under seism/parameters/HED.txt) are used. ```read_one_cont_png``` is used as IO function in SEISM.
 
 # 5. Get pre-trained models
-To faciliate the community to reproduce our SoTA results, we re-train our best performaning models with the training code in this repository and provide the weights for the reserachers.
+To faciliate the community to reproduce our SoTA results, we re-train our best performing models with the training code in this repository and provide the weights for the reserachers.
 
 ### Download pre-trained models
 |Version | google drive | onedrive |
@@ -91,7 +91,7 @@ BibTex:
 Please also consider :star2: star our project to share with your community if you find this repository helpful!
 
 # :blush: Contact
-Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) for any question.
+Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any questions.
 
 # :+1: Credits
 This repository borrows codes from [MTI-Net](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) and [ATRC](https://github.com/brdav/atrc).
@@ -103,4 +103,4 @@ Thanks la pyramide inversée in Louvre for inspiration.
 # :business_suit_levitating: License
 [Creative commons license](http://creativecommons.org/licenses/by-nc/4.0/) which allows for personal and research use only. 
 
-For commercial useage please contact the authors. 
+For commercial useage, please contact the authors. 
