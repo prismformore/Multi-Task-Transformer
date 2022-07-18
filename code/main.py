@@ -162,7 +162,7 @@ def main():
 
 if __name__ == "__main__":
     # IMPORTANT VARIABLES
-    DEBUG_FLAG = False
+    DEBUG_FLAG = False # When True, test the evaluation code when started
 
     assert args.run_mode in ['train', 'infer']
     main()

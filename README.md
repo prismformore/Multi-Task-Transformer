@@ -24,15 +24,17 @@ To qualitatively demonstrate the powerful performance and generalization ability
 # :grinning: Train your **InvPT**!
 
 ## 1. Build recommended environment
-For easier usage, we re-implement InvPT with a clean training framework, and here are some packages used in this project.
+For easier usage, we re-implement InvPT with a clean training framework, and here is a successful path to deploy the recommended environment:
 ```bash
-python == 3.7.11
-conda install pyyaml easydict imageio scikit-image
-pip install tqdm Pillow
-conda install -c conda-forge opencv
+conda create -n invpt python=3.7
+pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard
+pip install opencv-python==4.5.4.60
+pip install setuptools==59.5.0
 
 # An example of installing pytorch-1.10.0 with CUDA 11.1
 pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
+
+pip install timm==0.5.4 einops==0.4.1
 ```
 
 ## 2. Get data
