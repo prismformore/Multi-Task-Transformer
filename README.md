@@ -27,6 +27,7 @@ To qualitatively demonstrate the powerful performance and generalization ability
 For easier usage, we re-implement InvPT with a clean training framework, and here is a successful path to deploy the recommended environment:
 ```bash
 conda create -n invpt python=3.7
+conda activate invpt
 pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard
 pip install opencv-python==4.5.4.60 setuptools==59.5.0
 
