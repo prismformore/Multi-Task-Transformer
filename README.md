@@ -28,8 +28,7 @@ For easier usage, we re-implement InvPT with a clean training framework, and her
 ```bash
 conda create -n invpt python=3.7
 pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard
-pip install opencv-python==4.5.4.60
-pip install setuptools==59.5.0
+pip install opencv-python==4.5.4.60 setuptools==59.5.0
 
 # An example of installing pytorch-1.10.0 with CUDA 11.1
 pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
