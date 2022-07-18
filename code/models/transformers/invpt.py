@@ -11,6 +11,8 @@ from utils.utils import to_2tuple
 from timm.models.layers import DropPath, trunc_normal_
 import pdb
 
+BATCHNORM = nn.SyncBatchNorm # nn.BatchNorm2d
+
 def rearrange(*args, **kwargs):
     return o_rearrange(*args, **kwargs).contiguous()
 
@@ -29,10 +31,10 @@ class UpEmbed(nn.Module):
 
         self.proj = nn.Sequential(nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
                     nn.Conv2d(in_chans, embed_dim, kernel_size=patch_size, padding=padding, stride=stride, bias=False, dilation=padding),
-                    nn.BatchNorm2d(embed_dim),
+                    BATCHNORM(embed_dim),
                     nn.ReLU(inplace=True),
                     nn.Conv2d(embed_dim, embed_dim, kernel_size=patch_size, padding=padding, stride=stride, bias=False, dilation=padding),
-                    nn.BatchNorm2d(embed_dim),
+                    BATCHNORM(embed_dim),
                     nn.ReLU(inplace=True)
                     )
 
@@ -130,7 +132,7 @@ class SelfAttention(nn.Module):
                     bias=False,
                     groups=dim_in
                 )),
-                ('bn', nn.BatchNorm2d(dim_in)),
+                ('bn', BATCHNORM(dim_in)),
                 ('rearrage', Rearrange('b c h w -> b (h w) c')),
             ])) for _ in range(self.fea_no)]
             proj = nn.ModuleList(proj)
@@ -382,7 +384,7 @@ class InvPTStage(nn.Module):
             trunc_normal_(m.weight, std=0.02)
             if m.bias is not None:
                 nn.init.constant_(m.bias, 0)
-        elif isinstance(m, (nn.LayerNorm, nn.BatchNorm2d)):
+        elif isinstance(m, (nn.LayerNorm, BATCHNORM)):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
@@ -391,7 +393,7 @@ class InvPTStage(nn.Module):
             nn.init.xavier_uniform_(m.weight)
             if m.bias is not None:
                 nn.init.constant_(m.bias, 0)
-        elif isinstance(m, (nn.LayerNorm, nn.BatchNorm2d)):
+        elif isinstance(m, (nn.LayerNorm, BATCHNORM)):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
@@ -488,7 +490,7 @@ class InvPT(nn.Module):
         # Final convs
         self.mt_proj = nn.ModuleDict()
         for task in self.all_tasks:
-            self.mt_proj[task] = nn.Sequential(nn.Conv2d(self.mt_embed_dim, self.mt_embed_dim, 3, padding=1), nn.BatchNorm2d(self.mt_embed_dim), nn.ReLU(True))
+            self.mt_proj[task] = nn.Sequential(nn.Conv2d(self.mt_embed_dim, self.mt_embed_dim, 3, padding=1), BATCHNORM(self.mt_embed_dim), nn.ReLU(True))
             trunc_normal_(self.mt_proj[task][0].weight, std=0.02)
 
         # combining task features and preliminary predictions

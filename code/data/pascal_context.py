@@ -23,6 +23,7 @@ from configs.mypath import PROJECT_ROOT_DIR
 
 class PASCALContext(data.Dataset):
     """
+    from MTI-Net
     PASCAL-Context dataset, for multiple tasks
     Included tasks:
         1. Edge detection,

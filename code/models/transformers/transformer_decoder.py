@@ -10,6 +10,7 @@ import pdb
 import numpy as np
 from einops import rearrange as o_rearrange
 INTERPOLATE_MODE = 'bilinear'
+BATCHNORM = nn.SyncBatchNorm # nn.BatchNorm2d
 
 def rearrange(*args, **kwargs):
     return o_rearrange(*args, **kwargs).contiguous()
@@ -101,7 +102,7 @@ class ConvBlock(nn.Module):
                  base_width=64, dilation=1, norm_layer=None):
         super(ConvBlock, self).__init__()
         if norm_layer is None:
-            norm_layer = nn.BatchNorm2d
+            norm_layer = BATCHNORM
         if groups != 1 or base_width != 64:
             raise ValueError('BasicBlock only supports groups=1 and base_width=64')
         if dilation > 1:

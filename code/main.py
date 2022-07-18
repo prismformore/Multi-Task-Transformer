@@ -84,7 +84,8 @@ def main():
 
     # Get model
     model = get_model(p)
-    model = torch.nn.SyncBatchNorm.convert_sync_batchnorm(model).cuda()
+    # model = torch.nn.SyncBatchNorm.convert_sync_batchnorm(model).cuda()
+    model = model.cuda()
     model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.local_rank], output_device=args.local_rank, find_unused_parameters=True)
 
     # Get criterion
@@ -121,7 +122,7 @@ def main():
         iter_count  = checkpoint['iter_count'] # already + 1 when saving
     else:
         if args.local_rank == 0:
-            print('Fresh start...', 'blue')
+            print('Fresh start...')
         start_epoch = 0
         iter_count = 0
     if DEBUG_FLAG and args.local_rank == 0:

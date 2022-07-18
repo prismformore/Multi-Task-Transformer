@@ -115,16 +115,19 @@ def create_config(exp_file, params):
         cfg.TEST = edict()
         cfg.TEST.SCALE = (512, 512)
 
+    elif cfg['train_db_name'] == 'NYUD':
+        cfg.TRAIN = edict()
+        cfg.TEST = edict()
+        # cfg.TRAIN.SCALE = (425, 560)
+        # cfg.TEST.SCALE = (425, 560)
+        cfg.TRAIN.SCALE = (448, 576)
+        cfg.TEST.SCALE = (448, 576)
+
     else:
         raise NotImplementedError
 
     # set log dir
-    if cfg['setup'] == 'multi_task':
-        output_dir = os.path.join(root_dir, cfg['train_db_name'], cfg['backbone'], cfg['model'])
-    else:
-        raise NotImplementedError
-        
-
+    output_dir = root_dir
     cfg['root_dir'] = root_dir
     cfg['output_dir'] = output_dir
     cfg['save_dir'] = os.path.join(output_dir, 'results')

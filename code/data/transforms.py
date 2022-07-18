@@ -117,7 +117,6 @@ class PadImage:
         max_height = max(self.size[0], unpadded_shape[0])
         max_width = max(self.size[1], unpadded_shape[1])
 
-        # if len(unpadded_shape) == 3:
         padded = np.full((max_height, max_width, unpadded_shape[2]),
                         pad_value, dtype=np.float32)
         padded[height_location[0]:height_location[1],

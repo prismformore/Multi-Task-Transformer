@@ -104,3 +104,5 @@ def tb_update_perf(p, tb_writer_test, curr_result, cur_iter):
         tb_writer_test.add_scalar('perf/edge_val_loss', curr_result['edge']['loss'], cur_iter)
     if 'normals' in p.TASKS.NAMES:
         tb_writer_test.add_scalar('perf/normals_mean', curr_result['normals']['mean'], cur_iter)
+    if 'depth' in p.TASKS.NAMES:
+        tb_writer_test.add_scalar('perf/depth_rmse', curr_result['depth']['rmse'], cur_iter)

@@ -66,27 +66,6 @@ def get_single_task_meter(p, database, task):
         raise NotImplementedError
 
 @torch.no_grad()
-def eval_model(p, val_loader, model):
-    """ Evaluate model in an online fashion without storing the predictions to disk """
-    tasks = p.TASKS.NAMES
-    performance_meter = PerformanceMeter(p)
-
-    model.eval()
-
-    for i, batch in enumerate(val_loader):
-        # Forward pass
-        images = batch['image'].cuda(non_blocking=True)
-        targets = {task: batch[task].cuda(non_blocking=True) for task in tasks}
-        output = model(images)
-
-        # Measure performance
-        performance_meter.update({t: get_output(output[t], t) for t in tasks}, targets)
-
-    eval_results = performance_meter.get_score(verbose = True)
-    return eval_results
-
-
-@torch.no_grad()
 def save_model_pred_for_one_task(p, sample, output, save_dirs, task=None, epoch=None):
     """ Save model predictions for one task"""
 

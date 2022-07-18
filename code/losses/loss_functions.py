@@ -88,26 +88,6 @@ class BalancedBinaryCrossEntropyLoss(nn.Module):
         return loss
 
 
-class DepthLoss(nn.Module):
-    """
-    Loss for depth prediction. By default L1 loss is used.  
-    """
-    def __init__(self, loss='l1'):
-        super(DepthLoss, self).__init__()
-        if loss == 'l1':
-            self.loss = nn.L1Loss()
-
-        else:
-            raise NotImplementedError('Loss {} currently not supported in DepthLoss'.format(loss))
-
-    def forward(self, out, label):
-        mask = (label != 255)
-        if mask.sum() < 1:
-            # no instance pixel
-            return 0 
-        return self.loss(torch.masked_select(out, mask), torch.masked_select(label, mask))
-
-
 class Normalize(nn.Module):
     def __init__(self):
         super(Normalize, self).__init__()
@@ -166,6 +146,7 @@ class NormalsLoss(Module):
 
 class L1Loss(nn.Module):
     """
+    from ATRC
     L1 loss with ignore regions.
     normalize: normalization for surface normals
     """

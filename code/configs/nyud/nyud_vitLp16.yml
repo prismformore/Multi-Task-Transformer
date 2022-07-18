@@ -1,10 +1,10 @@
 # Setup
-version_name: InvPT_pascal_vitLp16
+version_name: InvPT_nyud_vitLp16
 out_dir: "../"
 
 # Database
-train_db_name: PASCALContext
-val_db_name: PASCALContext
+train_db_name: NYUD
+val_db_name: NYUD
 trBatch: 2
 valBatch: 6
 nworkers: 2
@@ -32,8 +32,7 @@ PRED_OUT_NUM_CONSTANT: 64
 # Tasks
 task_dictionary:
    include_semseg: True
-   include_human_parts: True
-   include_sal: True
+   include_depth: True
    include_edge: True
    include_normals: True
    edge_w: 0.95
@@ -42,7 +41,6 @@ task_dictionary:
 loss_kwargs:
    loss_weights:
        semseg: 1.0
-       human_parts: 2.0
-       sal: 5.0
+       depth: 1.0
+       normals: 10
        edge: 50.0
-       normals: 10.0

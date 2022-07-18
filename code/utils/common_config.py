@@ -41,18 +41,13 @@ def get_model(p):
 
     backbone, backbone_channels = get_backbone(p)
     
-    if p['setup'] == 'multi_task':
-        if p['model'] == 'TransformerNet':
-            from models.transformer_net import TransformerNet
-            feat_channels = p.final_embed_dim
-            heads = torch.nn.ModuleDict({task: get_head(p, feat_channels, task) for task in p.TASKS.NAMES})
-            model = TransformerNet(p, backbone, backbone_channels, heads)
-
-        else:
-            raise NotImplementedError('Unknown model {}'.format(p['model']))
-
+    if p['model'] == 'TransformerNet':
+        from models.transformer_net import TransformerNet
+        feat_channels = p.final_embed_dim
+        heads = torch.nn.ModuleDict({task: get_head(p, feat_channels, task) for task in p.TASKS.NAMES})
+        model = TransformerNet(p, backbone, backbone_channels, heads)
     else:
-        raise NotImplementedError('Unknown setup {}'.format(p['setup']))
+        raise NotImplementedError('Unknown model {}'.format(p['model']))
     return model
 
 
@@ -111,7 +106,7 @@ def get_train_dataset(p, transforms=None):
         database = NYUD_MT(p.db_paths['NYUD_MT'], download=False, split='train', transform=transforms, do_edge='edge' in p.TASKS.NAMES, 
                                     do_semseg='semseg' in p.TASKS.NAMES, 
                                     do_normals='normals' in p.TASKS.NAMES, 
-                                    do_depth='depth' in p.TASKS.NAMES, overfit=p['overfit'])
+                                    do_depth='depth' in p.TASKS.NAMES, overfit=False)
 
 
     return database
@@ -146,7 +141,7 @@ def get_test_dataset(p, transforms=None):
         database = NYUD_MT(p.db_paths['NYUD_MT'], download=False, split='val', transform=transforms, do_edge='edge' in p.TASKS.NAMES, 
                                     do_semseg='semseg' in p.TASKS.NAMES, 
                                     do_normals='normals' in p.TASKS.NAMES, 
-                                    do_depth='depth' in p.TASKS.NAMES, overfit=p['overfit'])
+                                    do_depth='depth' in p.TASKS.NAMES)
 
     else:
         raise NotImplemented("test_db_name: Choose among PASCALContext and NYUD")
@@ -185,8 +180,8 @@ def get_loss(p, task=None):
         criterion = CrossEntropyLoss(balanced=True, ignore_index=p.ignore_index) 
 
     elif task == 'depth':
-        from losses.loss_functions import DepthLoss
-        criterion = DepthLoss(p['depthloss'])
+        from losses.loss_functions import L1Loss
+        criterion = L1Loss()
 
     else:
         criterion = None
