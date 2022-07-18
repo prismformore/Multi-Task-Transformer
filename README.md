@@ -10,15 +10,16 @@ This repository implements our ECCV2022 paper InvPT:
 
 InvPT proposes a novel end-to-end Inverted Pyramid multi-task Transformer to perform **simultaneous modeling of spatial positions and multiple tasks in a unified framework**. InvPT presents an efficient UP-Transformer block to learn multi-task feature interaction at gradually increased resolutions, which also incorporates effective self-attention message passing and multi-scale feature aggregation to produce task-specific prediction at a high resolution. InvPT achieves superior performance on NYUD-v2 and PASCAL-Context datasets respectively, and **significantly outperforms previous state-of-the-arts**.
 
-## News
-:triangular_flag_on_post: **Updates** 
-- :white_check_mark: July 17, 2022: First update with InvPT model trained on PASCAL-Context dataset!
-
 # :sunglasses: Demo
 
 [![Watch the video](davis_shot.jpg)](https://youtu.be/XxSZUkknHII)
 To qualitatively demonstrate the powerful performance and generalization ability of our multi-task model *InvPT*, we further examine its multi-task prediction performance  for dense scene understanding in the new scenes. Specifically, we train InvPT on PASCAL-Context dataset (with 4,998 training images) and generate prediction results of the video frames in [DAVIS](https://davischallenge.org/) dataset without any fine-tuning. InvPT yields good performance on the new dataset with distinct data distribution.
 **Watch the demo [here](https://youtu.be/XxSZUkknHII)!**
+
+# :tv: News
+:triangular_flag_on_post: **Updates** 
+- :white_check_mark: July 17, 2022: First update with InvPT model trained on PASCAL-Context dataset!
+
 
 # :grinning: Train your **InvPT**!
 
@@ -52,10 +53,16 @@ The config files are defined in ```./configs```  in the ```code``` directory, th
 
 As an example, we provide the training script of the best performing model of InvPT with Vit-L backbone. To start training, you simply need to go into ```code``` directory and run:
 ```bash
-bash run.sh
+bash run.sh # for training on PASCAL-Context dataset. 
+```
+or 
+```bash
+bash run_nyud.sh # for training on NYUD-v2 dataset.
 ```
 **after specifcifing your devices and config** in ```run.sh```.
 This framework supports [DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) for multi-gpu training.
+
+All models are defined in ```models/``` so it should be easy to **deploy your own model in this framework**.
 
 ## 4. Evaluate the model
 The training script itself includes evaluation. 
@@ -70,9 +77,10 @@ Specifically, identical to ATRC and ASTMT, we use [maxDist](https://github.com/j
 To faciliate the community to reproduce our SoTA results, we re-train our best performing models with the training code in this repository and provide the weights for the reserachers.
 
 ### Download pre-trained models
-|Version | google drive | onedrive |
-|---|---|---|
-| InvPT_pascal_vitLp16| [google drive](https://drive.google.com/file/d/1r0ugzCd45YiuBrbYTb94XVIRj6VUsBAS/view?usp=sharing) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EcwMp9uUEfdLnQcaNJsN3bgBfQeHHqs2pkj7KmtGx_dslw?e=0CtDfq) |
+|Version | train dataset | google drive | onedrive |
+|:-:|:-:|:-:|:-:|
+| InvPT_pascal_vitLp16| PASCAL-Context | [google drive](https://drive.google.com/file/d/1r0ugzCd45YiuBrbYTb94XVIRj6VUsBAS/view?usp=sharing) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EcwMp9uUEfdLnQcaNJsN3bgBfQeHHqs2pkj7KmtGx_dslw?e=0CtDfq) |
+| InvPT_nyud_vitLp16| NYUD-v2 | [google drive](https://drive.google.com/file/d/1Ag_4axN-TaAZS_W-nFIm4__DoDw1zgqI/view?usp=sharing) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EU6ypDGEFPFLuC5rG5Vj2KkBliG1gXgbXh2t_YQJIk9YLw?e=U6hJ4H) |
 
 ### Infer with the pre-trained models
  Set pre-trained model path in ```run.sh``` by adding ```--trained_model pretrained_model_path```.
