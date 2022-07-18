@@ -18,7 +18,7 @@ To qualitatively demonstrate the powerful performance and generalization ability
 
 # :tv: News
 :triangular_flag_on_post: **Updates** 
-- :white_check_mark: July 17, 2022: First update with InvPT model trained on PASCAL-Context dataset!
+- :white_check_mark: July 18, 2022: Update with InvPT models trained on PASCAL-Context and NYUD-v2 dataset!
 
 
 # :grinning: Train your **InvPT**!
@@ -83,7 +83,7 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 | InvPT_nyud_vitLp16| NYUD-v2 | [google drive](https://drive.google.com/file/d/1Ag_4axN-TaAZS_W-nFIm4__DoDw1zgqI/view?usp=sharing) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EU6ypDGEFPFLuC5rG5Vj2KkBliG1gXgbXh2t_YQJIk9YLw?e=U6hJ4H) |
 
 ### Infer with the pre-trained models
- Set pre-trained model path in ```run.sh``` by adding ```--trained_model pretrained_model_path```.
+Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model pretrained_model_path```.
 You also need to change ```run_mode``` in ```run.sh``` to ```infer```.
 
 # :hugs: Cite
