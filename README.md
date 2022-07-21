@@ -48,12 +48,12 @@ And then extract the datasets by:
 tar xfvz NYUDv2.tar.gz
 tar xfvz PASCALContext.tar.gz
 ```
-You need to specify the dataset directory as ```db_root``` variable in ```./configs/mypath.py``` inside the ```code``` directory.
+You need to specify the dataset directory as ```db_root``` variable in ```configs/mypath.py```. 
 
 ## 3. Train the model
-The config files are defined in ```./configs```  in the ```code``` directory, the output directory is also defined in your config file.
+The config files are defined in ```./configs```, the output directory is also defined in your config file.
 
-As an example, we provide the training script of the best performing model of InvPT with Vit-L backbone. To start training, you simply need to go into ```code``` directory and run:
+As an example, we provide the training script of the best performing model of InvPT with Vit-L backbone. To start training, you simply need to run:
 ```bash
 bash run.sh # for training on PASCAL-Context dataset. 
 ```
@@ -79,10 +79,19 @@ Specifically, identical to ATRC and ASTMT, we use [maxDist](https://github.com/j
 To faciliate the community to reproduce our SoTA results, we re-train our best performing models with the training code in this repository and provide the weights for the reserachers.
 
 ### Download pre-trained models
-|Version | train dataset | google drive | onedrive |
-|:-:|:-:|:-:|:-:|
-| InvPT_pascal_vitLp16| PASCAL-Context | [google drive](https://drive.google.com/file/d/1r0ugzCd45YiuBrbYTb94XVIRj6VUsBAS/view?usp=sharing) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EcwMp9uUEfdLnQcaNJsN3bgBfQeHHqs2pkj7KmtGx_dslw?e=0CtDfq) |
-| InvPT_nyud_vitLp16| NYUD-v2 | [google drive](https://drive.google.com/file/d/1Ag_4axN-TaAZS_W-nFIm4__DoDw1zgqI/view?usp=sharing) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EU6ypDGEFPFLuC5rG5Vj2KkBliG1gXgbXh2t_YQJIk9YLw?e=U6hJ4H) |
+|Version | Dataset | Download | Segmentation | Human parsing | Saliency | Normals | Boundary | 
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| **InvPT<sup>*</sup>**| **PASCAL-Context** | [google drive](https://drive.google.com/file/d/1r0ugzCd45YiuBrbYTb94XVIRj6VUsBAS/view?usp=sharing), [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EcwMp9uUEfdLnQcaNJsN3bgBfQeHHqs2pkj7KmtGx_dslw?e=0CtDfq) | **79.91** | **68.54** | **84.38** | **13.90** | **72.90** |
+| InvPT (our paper) | PASCAL-Context | - | 79.03 | 67.61 | 84.81 | 14.15 | 73.00 | 
+| ATRC (ICCV 2021) | PASCAL-Context | - | 67.67 | 62.93 | 82.29 | 14.24 | 72.42 |
+
+|Version | Dataset | Download | Segmentation | Depth | Normals | Boundary|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| **InvPT<sup>*</sup>**| **NYUD-v2** | [google drive](https://drive.google.com/file/d/1Ag_4axN-TaAZS_W-nFIm4__DoDw1zgqI/view?usp=sharing), [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EU6ypDGEFPFLuC5rG5Vj2KkBliG1gXgbXh2t_YQJIk9YLw?e=U6hJ4H) | **53.65** | **0.5083** | **18.68** | **77.80**|
+|InvPT (our paper) |NYUD-v2|-| 53.56 | 0.5183 | 19.04 | 78.10 |
+| ATRC (ICCV 2021) |NYUD-v2|-| 46.33 | 0.5363 | 20.18 | 77.94|
+
+<sup>*</sup>: reproduced results
 
 ### Infer with the pre-trained models
 Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model pretrained_model_path```.
