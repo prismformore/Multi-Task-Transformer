@@ -8,7 +8,9 @@ This repository implements our ECCV2022 paper InvPT:
 > [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [Inverted Pyramid Multi-task Transformer for Dense Scene Understanding](https://arxiv.org/abs/2203.07997). 
 > The Hong Kong University of Science and Technology (HKUST)
 
-InvPT proposes a novel end-to-end Inverted Pyramid multi-task Transformer to perform **simultaneous modeling of spatial positions and multiple tasks in a unified framework**. InvPT presents an efficient UP-Transformer block to learn multi-task feature interaction at gradually increased resolutions, which also incorporates effective self-attention message passing and multi-scale feature aggregation to produce task-specific prediction at a high resolution. InvPT achieves superior performance on NYUD-v2 and PASCAL-Context datasets respectively, and **significantly outperforms previous state-of-the-arts**.
+- InvPT proposes a novel end-to-end Inverted Pyramid multi-task Transformer to perform **simultaneous modeling of spatial positions and multiple tasks in a unified framework**. 
+- InvPT presents an efficient UP-Transformer block to learn multi-task feature interaction at gradually increased resolutions, which also incorporates effective self-attention message passing and multi-scale feature aggregation to produce task-specific prediction at a high resolution. 
+- InvPT achieves superior performance on NYUD-v2 and PASCAL-Context datasets respectively, and **significantly outperforms previous state-of-the-arts**.
 
 # :sunglasses: Demo
 
@@ -75,7 +77,7 @@ We follow previous works and use Matlab-based [SEISM](https://github.com/jponttu
 
 Specifically, identical to ATRC and ASTMT, we use [maxDist](https://github.com/jponttuset/seism/blob/6af0cad37d40f5b4cbd6ca1d3606ec13b176c351/src/scripts/eval_method.m#L34)=0.0075 for PASCAL-Context and maxDist=0.011 for NYUD-v2. Thresholds for HED (under seism/parameters/HED.txt) are used. ```read_one_cont_png``` is used as IO function in SEISM.
 
-# 5. Get pre-trained models
+# :partying_face:	 Pre-trained InvPT models
 To faciliate the community to reproduce our SoTA results, we re-train our best performing models with the training code in this repository and provide the weights for the reserachers.
 
 ### Download pre-trained models
@@ -97,6 +99,7 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model pretrained_model_path```.
 You also need to change ```run_mode``` in ```run.sh``` to ```infer```.
 
+
 # :hugs: Cite
 BibTex:
 ```
@@ -115,7 +118,7 @@ Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any ques
 # :+1: Credits
 This repository borrows codes from [MTI-Net](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) and [ATRC](https://github.com/brdav/atrc).
 
-Thanks la pyramide inversée in Louvre for inspiration.
+Thanks la pyramide inversée in Louvre for aesthetic inspiration.
 
 <img src="https://user-images.githubusercontent.com/14089338/179384320-1348a383-e552-4114-b882-86a806f1b7fd.jpg" width="400" height="280">
 
