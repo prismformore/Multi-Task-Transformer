@@ -12,6 +12,21 @@ This repository implements our ECCV2022 paper InvPT:
 - InvPT presents an efficient UP-Transformer block to learn multi-task feature interaction at gradually increased resolutions, which also incorporates effective self-attention message passing and multi-scale feature aggregation to produce task-specific prediction at a high resolution. 
 - InvPT achieves superior performance on NYUD-v2 and PASCAL-Context datasets respectively, and **significantly outperforms previous state-of-the-arts**.
 
+<p align="center">
+  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/184326334-d80e51f9-a907-49f9-876f-c2ecd4844834.png" width="700">
+  <br>
+    <em>InvPT enables jointly learning and inference of global spatial interaction and simultaneous all-task interaction, which is critically important for multi-task dense prediction.</em>
+</p>
+
+
+<p align="center">
+  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/184339231-e019b212-f2ac-4cb9-9aa8-f50794b16ccb.png" width="1000">
+  <br>
+    <em>Framework overview of the proposed Inverted Pyramid Multi-task Transformer (InvPT) for dense scene understanding.</em>
+</p>
+
+
+
 # :sunglasses: Demo
 
 [![Watch the video](davis_shot.jpg)](https://youtu.be/XxSZUkknHII)
@@ -115,12 +130,8 @@ Please also consider :star2: star our project to share with your community if yo
 # :blush: Contact
 Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any questions.
 
-# :+1: Credits
-This repository borrows codes from [MTI-Net](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) and [ATRC](https://github.com/brdav/atrc).
-
-Thanks la pyramide inversée in Louvre for aesthetic inspiration.
-
-<img src="https://user-images.githubusercontent.com/14089338/179384320-1348a383-e552-4114-b882-86a806f1b7fd.jpg" width="400" height="280">
+# :+1: Acknowledgement
+This repository borrows partial codes from [MTI-Net](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) and [ATRC](https://github.com/brdav/atrc).
 
 # :business_suit_levitating: License
 [Creative commons license](http://creativecommons.org/licenses/by-nc/4.0/) which allows for personal and research use only. 
