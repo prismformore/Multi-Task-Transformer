@@ -121,7 +121,7 @@ BibTex:
 @InProceedings{invpt2022,
   title={Inverted Pyramid Multi-task Transformer for Dense Scene Understanding},
   author={Ye, Hanrong and Xu, Dan},
-  journal={ECCV},
+  booktitle={ECCV},
   year={2022}
 }
 ```
