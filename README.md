@@ -114,6 +114,12 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model pretrained_model_path```.
 You also need to change ```run_mode``` in ```run.sh``` to ```infer```.
 
+### Generate multi-task predictions form any image
+To generate multi-task predictions from an image with the pre-trained InvPT model on PASCAL-Context, please use ```inference.py```. An example running script is:
+```
+CUDA_VISIBLE_DEVICES=0 python inference.py --image_path=IMAGE_PATH --ckp_path=CKP_PATH --save_dir=SAVE_DIR
+```
+
 
 # :hugs: Cite
 BibTex:
