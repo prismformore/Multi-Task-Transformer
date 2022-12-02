@@ -206,7 +206,7 @@ def infer(task):
   
 if __name__ == "__main__":
     # Run example: 
-    # CUDA_VISIBLE_DEVICES=0 python inference.py --image_path=IMAGE_PATH --ckp_path=CKP_PATH
+    # CUDA_VISIBLE_DEVICES=0 python inference.py --image_path=IMAGE_PATH --ckp_path=CKP_PATH --save_dir=SAVE_DIR
 
     # task = args.task
     tasks = ['semseg', 'normals', 'sal', 'edge', 'human_parts']
