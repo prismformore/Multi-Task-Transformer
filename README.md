@@ -133,8 +133,14 @@ BibTex:
   booktitle={ECCV},
   year={2022}
 }
+@InProceedings{taskprompter2023,
+  title={TaskPrompter: Spatial-Channel Multi-Task Prompting for Dense Scene Understanding},
+  author={Ye, Hanrong and Xu, Dan},
+  booktitle={ICLR},
+  year={2023}
+}
 ```
-Please also consider :star2: star our project to share with your community if you find this repository helpful!
+Please do consider :star2: star our project to share with your community if you find this repository helpful!
 
 # :blush: Contact
 Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any questions.
