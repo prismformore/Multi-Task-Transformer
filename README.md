@@ -34,9 +34,10 @@ This repository currently contains codes of our ECCV2022 paper InvPT:
 
 # :sunglasses: Demo
 
-[![Watch the video](davis_shot.jpg)](https://youtu.be/XxSZUkknHII)
+https://user-images.githubusercontent.com/14089338/220098059-c79d1552-87c0-4a0f-94dd-7482dffc4867.mp4
+
 To qualitatively demonstrate the powerful performance and generalization ability of our multi-task model *InvPT*, we further examine its multi-task prediction performance  for dense scene understanding in the new scenes. Specifically, we train InvPT on PASCAL-Context dataset (with 4,998 training images) and generate prediction results of the video frames in [DAVIS](https://davischallenge.org/) dataset without any fine-tuning. InvPT yields good performance on the new dataset with distinct data distribution.
-**Watch the demo [here](https://youtu.be/XxSZUkknHII)!**
+**Watch the clearer version of demo [here](https://youtu.be/XxSZUkknHII)!**
 
 # :tv: News
 :triangular_flag_on_post: **Updates** 
