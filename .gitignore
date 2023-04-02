@@ -14,3 +14,4 @@ eggs/
 *.egg-info/
 *.egg
 .mim
+eval_edge.sh
