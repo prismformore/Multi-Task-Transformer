@@ -46,7 +46,7 @@ To qualitatively demonstrate the powerful multi-task performance of TaskPrompter
 
 # News
 :triangular_flag_on_post: **Updates** 
-- :white_check_mark: Mar 30, 2023: Release TaskPrompter models trained on Cityscapes-3D, PASCAL-Context, and NYUD-v2 dataset!
+- :white_check_mark: April 4, 2023: Release TaskPrompter models trained on Cityscapes-3D, PASCAL-Context, and NYUD-v2 dataset!
 
 
 # :grinning: Train your **TaskPrompter**!
