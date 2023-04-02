@@ -159,7 +159,7 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | TaskPrompter (Swin-B)| Cityscapes-3D | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EQMcvnP6setAkM3O7d_U6nQB6CB6Plmjkvp6q9O1JFaSyw?e=Ftftdp) | 32.96 | 6.79 | 78.17 | - | - | - | - |
 | TaskPrompter (ViT-L)| PASCAL-Context | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EbMc64ApqllMhKoofDzW7x0BCScxiG2dsoxLFPSQjPi_Pg?e=ELbk0o) | - | - |80.79 | 68.81 |84.26 | 13.58 | 73.80 |
-| TaskPrompter (ViT-L) | NYUD-v2 | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EdZm1DHcp4lNv4FF6pRfkk0B1MlcwxD4ViF8me7mPYGFLA?e=M3AfPY) | - | 0.5062 | 55.90 | - | - | 18.58 | 77.7 |
+| TaskPrompter (ViT-L) | NYUD-v2 | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EdZm1DHcp4lNv4FF6pRfkk0B1MlcwxD4ViF8me7mPYGFLA?e=M3AfPY) | - | 0.5062 | 55.90 | - | - | 18.58 | 77.70 |
 
 ### Infer with the pre-trained models
 Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model MODEL_PATH```.
