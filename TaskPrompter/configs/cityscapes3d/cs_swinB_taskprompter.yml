@@ -1,0 +1,49 @@
+# Setup
+version_name: TaskPrompter_CS_swinB
+out_dir: "../"
+
+# Database
+train_db_name: Cityscapes3D
+val_db_name: Cityscapes3D
+trBatch: 1
+valBatch: 8
+nworkers: 2
+ignore_index: 255
+
+# downsample feature resolution
+fea_ds_ratio: 1
+img_ds_ratio: 0.75
+
+# Optimizer and scheduler
+intermediate_supervision: False
+val_interval: 1000
+epochs: 999999
+max_iter: 40000
+optimizer: adam
+optimizer_kwargs:
+   lr: 2.e-5
+scheduler: poly
+grad_clip_param: {'max_norm': 10, 'norm_type': 2}
+ignore_invalid_area_depth: False
+
+# Model
+model: TaskPrompter
+backbone: TaskPrompter_swinB
+head:  conv
+final_embed_dim: 512
+prompt_len: 1
+chan_embed_dim: 256
+chan_nheads: 1
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_depth: True
+   include_3ddet: True
+
+# Loss kwargs
+loss_kwargs:
+   loss_weights:
+       semseg: 100.0
+       depth: 1.0
+       3ddet: 1.0

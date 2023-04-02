@@ -1,6 +1,16 @@
-__pycache__/
+__pycache__
 *.pyc 
 *tmp
 tmp/
 build/
 *.log
+CS3D_bad_samples_train.pickle
+*.log
+*.so
+CS3D_bad_samples_train.txt
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+*.egg
+.mim

@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2  --master_port=$((RANDOM%1000+12000))  main.py --config_exp './configs/cityscapes3d/cs_swinB_taskprompter.yml' --run_mode train  #--trained_model  pretrained_mode0l_path
