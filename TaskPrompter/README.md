@@ -42,7 +42,7 @@ Please check the ICLR 2023 [paper](https://openreview.net/pdf?id=-CwPopPJda) for
 
 
 To qualitatively demonstrate the powerful multi-task performance of TaskPrompter, we visualizes its predictions on Cityscapes-3D. 
-**Watch the full version of demo [here]()!**
+**Watch the full version of demo [here](https://youtu.be/-eAvl8CLV1g)!**
 
 # News
 :triangular_flag_on_post: **Updates** 
@@ -59,26 +59,34 @@ conda activate taskprompter
 pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard
 pip install opencv-python==4.5.4.60 setuptools==59.5.0
 
-# Example of installing pytorch-1.10.0 with CUDA 11.3
-conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+# Example of installing pytorch-1.10.0 
+pip install torch==1.10.0+cu111 torchvision==0.11.0+cu111 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 pip install timm==0.5.4 einops==0.4.1
 ```
 
 ### Additional environment setup for 3D detection on Cityscapes-3D
 If you would like to set up the multi-task Cityscapes-3D benchmark with 3D detection, you will also need to install [MMDetection3D](https://github.com/open-mmlab/mmdetection3d/blob/master/docs/en/getting_started.md). MMDetection3D is highly dependent on the versions of related packages. Here is our suggested installation path:
 ```bash
-pip install mmcv-full==1.4.0 -f
-pip install mmdet==2.20.0
-pip install mmsegmentation==2.20.0
+pip install openmim
+mim install mmcv-full
+mim install mmdet
+mim install mmsegmentation
+```
+Then, install the MMDetection3D package in another directory you want:
+```bash
 git clone https://github.com/open-mmlab/mmdetection3d.git
 cd mmdetection3d
-# git checkout v1.0.0.dev0 # I developed the project based on this version, but it may be compatible with the newer version
 pip install -e .
 ```
 
-Next, run the setup script for the NMS tool written in CUDA (borrowed from MMDetection3D):
+Next, come back to this repository and run the setup script for the NMS tool written in CUDA (borrowed from MMDetection3D):
 ```bash
 bash setup_3ddet.sh
+```
+
+For evaluation on Cityscapes-3D, you will also need to install the official evaluation tool:
+```bash
+pip install cityscapesscripts
 ```
 
 
@@ -149,9 +157,9 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 ### Download pre-trained models
 |Version | Dataset | Download | 3D det (mDS) | Depth (RMSE) | Segmentation (mIoU) |  Human parsing (mIoU) | Saliency (maxF) | Normals (mErr) | Boundary (odsF) | 
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| TaskPrompter| Cityscapes-3D | [google drive](), [onedrive]() | 32.92 | 6.79 | 78.17 | - | - | - | - |
-| TaskPrompter| PASCAL-Context | [google drive](), [onedrive]() | - | - |80.79 | 68.81 |84.26 | 13.58 | 73.80 |
-| TaskPrompter | NYUD-v2 | [google drive](), [onedrive]() | - | 0.5062 | 55.90 | - | - | 18.58 | 77.7 |
+| TaskPrompter (Swin-B)| Cityscapes-3D | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EQMcvnP6setAkM3O7d_U6nQB6CB6Plmjkvp6q9O1JFaSyw?e=Ftftdp) | 32.96 | 6.79 | 78.17 | - | - | - | - |
+| TaskPrompter (ViT-L)| PASCAL-Context | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EbMc64ApqllMhKoofDzW7x0BCScxiG2dsoxLFPSQjPi_Pg?e=ELbk0o) | - | - |80.79 | 68.81 |84.26 | 13.58 | 73.80 |
+| TaskPrompter (ViT-L) | NYUD-v2 | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EdZm1DHcp4lNv4FF6pRfkk0B1MlcwxD4ViF8me7mPYGFLA?e=M3AfPY) | - | 0.5062 | 55.90 | - | - | 18.58 | 77.7 |
 
 ### Infer with the pre-trained models
 Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model MODEL_PATH```.
