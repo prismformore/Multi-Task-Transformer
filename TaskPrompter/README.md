@@ -157,9 +157,9 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 ### Download pre-trained models
 |Version | Dataset | Download | 3D det (mDS) | Depth (RMSE) | Segmentation (mIoU) |  Human parsing (mIoU) | Saliency (maxF) | Normals (mErr) | Boundary (odsF) | 
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| TaskPrompter (Swin-B)| Cityscapes-3D | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EQMcvnP6setAkM3O7d_U6nQB6CB6Plmjkvp6q9O1JFaSyw?e=Ftftdp) | 32.96 | 6.79 | 78.17 | - | - | - | - |
-| TaskPrompter (ViT-L)| PASCAL-Context | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EbMc64ApqllMhKoofDzW7x0BCScxiG2dsoxLFPSQjPi_Pg?e=ELbk0o) | - | - |80.79 | 68.81 |84.26 | 13.58 | 73.80 |
-| TaskPrompter (ViT-L) | NYUD-v2 | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EdZm1DHcp4lNv4FF6pRfkk0B1MlcwxD4ViF8me7mPYGFLA?e=M3AfPY) | - | 0.5062 | 55.90 | - | - | 18.58 | 77.70 |
+| TaskPrompter (Swin-B)| Cityscapes-3D | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EftP35Bw8tJFpPC0_E9Dar4BvuOJFXX11e_vXQmA8EQpGQ?e=lxL6q2) | 32.96 | 6.79 | 78.17 | - | - | - | - |
+| TaskPrompter (ViT-L)| PASCAL-Context | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EYX13WbZOPRHnsV5fPeolEYBeafey2PYnTpd7jLFlGDc5w?e=Yg4enV) | - | - |80.79 | 68.81 |84.26 | 13.58 | 73.80 |
+| TaskPrompter (ViT-L) | NYUD-v2 | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EQx8Ub49_ahKnDQJEv9Sjz8BrhQ33GyFHaas8eQaq0uVcA?e=DnT2zg) | - | 0.5062 | 55.90 | - | - | 18.58 | 77.70 |
 
 ### Infer with the pre-trained models
 Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model MODEL_PATH```.
