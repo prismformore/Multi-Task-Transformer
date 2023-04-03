@@ -13,6 +13,11 @@
     <em>Joint 2D-3D multi-task scene understanding on Cityscapes-3D: 3D detection, segmentation, and depth estimation.</em>
 </p>
 
+<p align="center">
+    <a href="https://openreview.net/pdf?id=-CwPopPJda">Paper</a>&nbsp;&nbsp;&nbsp;
+  <a href="https://youtu.be/-eAvl8CLV1g">Demo</a>
+</p>  
+
 ##  :scroll: Introduction
 This repository contains the codes and models for TaskPrompter, our multi-task prompting transformer model, which has been implemented on three datasets: Cityscapes-3D (NEW!), PASCAL-Context, and NYUD-v2. 
 
