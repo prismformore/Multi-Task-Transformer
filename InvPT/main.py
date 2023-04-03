@@ -115,11 +115,15 @@ def main():
         if args.local_rank == 0:
             print('Use checkpoint {}'.format(checkpoint_path))
         checkpoint = torch.load(checkpoint_path, map_location='cpu')
-        optimizer.load_state_dict(checkpoint['optimizer'])
-        scheduler.load_state_dict(checkpoint['scheduler'])
         model.load_state_dict(checkpoint['model'])
-        start_epoch = checkpoint['epoch'] + 1 # epoch count is not used
-        iter_count  = checkpoint['iter_count'] # already + 1 when saving
+        if 'optimizer' in checkpoint.keys():
+            optimizer.load_state_dict(checkpoint['optimizer'])
+        if 'scheduler' in checkpoint.keys():
+            scheduler.load_state_dict(checkpoint['scheduler'])
+        if 'epoch' in checkpoint.keys():
+            start_epoch = checkpoint['epoch'] + 1 # epoch count is not used
+        if 'iter_count' in checkpoint.keys():
+            iter_count  = checkpoint['iter_count'] # already + 1 when saving
     else:
         if args.local_rank == 0:
             print('Fresh start...')
