@@ -122,8 +122,12 @@ def main():
             scheduler.load_state_dict(checkpoint['scheduler'])
         if 'epoch' in checkpoint.keys():
             start_epoch = checkpoint['epoch'] + 1 # epoch count is not used
+        else:
+            start_epoch = 0
         if 'iter_count' in checkpoint.keys():
             iter_count  = checkpoint['iter_count'] # already + 1 when saving
+        else:
+            iter_count = 0
     else:
         if args.local_rank == 0:
             print('Fresh start...')
