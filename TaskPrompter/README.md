@@ -14,8 +14,10 @@
 </p>
 
 <p align="center">
-    <a href="https://openreview.net/pdf?id=-CwPopPJda">Paper</a>&nbsp;&nbsp;&nbsp;
-  <a href="https://youtu.be/-eAvl8CLV1g">Demo</a>
+    <a href="https://openreview.net/pdf?id=-CwPopPJda">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://youtu.be/-eAvl8CLV1g">Demo</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://arxiv.org/abs/2304.00971">Cityscapes-3D Supp. (arXiv)</a>
+  
 </p>  
 
 ##  :scroll: Introduction
