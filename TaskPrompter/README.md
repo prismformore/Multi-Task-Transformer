@@ -1,4 +1,7 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/joint-2d-3d-multi-task-learning-on-cityscapes/monocular-depth-estimation-on-cityscapes-3d)](https://paperswithcode.com/sota/monocular-depth-estimation-on-cityscapes-3d?p=joint-2d-3d-multi-task-learning-on-cityscapes)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/joint-2d-3d-multi-task-learning-on-cityscapes/3d-object-detection-on-cityscapes-3d)](https://paperswithcode.com/sota/3d-object-detection-on-cityscapes-3d?p=joint-2d-3d-multi-task-learning-on-cityscapes)
 ![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
+
 
 <p align="center" width="100%">
 <img src="https://user-images.githubusercontent.com/14089338/229339707-5da4ec14-8fa5-44e4-bd73-d0859cdc7747.png" alt="taskprompter" style="width: 60%; min-width: 300px; display: block; margin: auto; background-color: transparent;">
@@ -14,8 +17,10 @@
 </p>
 
 <p align="center">
-    <a href="https://openreview.net/pdf?id=-CwPopPJda">Paper</a>&nbsp;&nbsp;&nbsp;
-  <a href="https://youtu.be/-eAvl8CLV1g">Demo</a>
+    <a href="https://openreview.net/pdf?id=-CwPopPJda">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://youtu.be/-eAvl8CLV1g">Demo</a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://arxiv.org/abs/2304.00971">Cityscapes-3D Supp. (arXiv)</a>
+  
 </p>  
 
 ##  :scroll: Introduction
