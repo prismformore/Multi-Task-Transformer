@@ -1,0 +1,51 @@
+# Setup
+version_name: TaskPrompter_pascal_vitBp16
+out_dir: "../"
+
+# Database
+train_db_name: PASCALContext
+val_db_name: PASCALContext
+trBatch: 2
+valBatch: 6
+nworkers: 2
+ignore_index: 255
+
+# Optimizer and scheduler
+intermediate_supervision: False
+val_interval: 1000
+epochs: 999999
+max_iter: 40000
+optimizer: adam
+optimizer_kwargs:
+   lr: 0.00002
+   weight_decay: 0.000001
+scheduler: poly
+grad_clip_param: {'max_norm': 10, 'norm_type': 2}
+
+# Model
+model: TaskPrompter
+backbone: TaskPrompter_vitB
+head:  conv
+embed_dim: 780
+final_embed_dim: 1024
+prompt_len: 1
+chan_nheads: 16
+use_ctr: True
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_human_parts: True
+   include_sal: True
+   include_edge: True
+   include_normals: True
+   edge_w: 0.95
+
+# Loss kwargs
+loss_kwargs:
+   loss_weights:
+       semseg: 1.0
+       human_parts: 2.0
+       sal: 5.0
+       edge: 50.0
+       normals: 10.0

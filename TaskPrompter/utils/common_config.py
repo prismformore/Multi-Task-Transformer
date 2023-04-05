@@ -24,6 +24,13 @@ def get_backbone(p):
         p.backbone_channels = backbone_channels
         p.spatial_dim = [[p.TRAIN.SCALE[0]//16, p.TRAIN.SCALE[1]//16] for _ in range(4)] 
 
+    elif p['backbone'] == 'TaskPrompter_vitB':
+        from models.transformers.taskprompter import  taskprompter_vit_base_patch16_384
+        backbone = taskprompter_vit_base_patch16_384(p=p, pretrained=True, drop_path_rate=0.15, img_size=p.TRAIN.SCALE)
+        backbone_channels = p.final_embed_dim
+        p.backbone_channels = backbone_channels
+        p.spatial_dim = [[p.TRAIN.SCALE[0]//16, p.TRAIN.SCALE[1]//16] for _ in range(4)] 
+
     elif p['backbone'] == 'TaskPrompter_swinB':
         from models.transformers.taskprompter_swin import  taskprompter_swin_base_patch4_window12_384
         backbone_channels = [256, 512, 1024, 1024]
