@@ -78,13 +78,13 @@ pip install timm==0.5.4 einops==0.4.1
 If you would like to set up the multi-task Cityscapes-3D benchmark with 3D detection, you will also need to install [MMDetection3D](https://github.com/open-mmlab/mmdetection3d/blob/master/docs/en/getting_started.md). MMDetection3D is highly dependent on the versions of related packages. Here is our suggested installation path:
 ```bash
 pip install openmim
-mim install mmcv-full
-mim install mmdet
-mim install mmsegmentation
+mim install mmcv-full==1.6.2
+mim install mmdet==2.28.2
+mim install mmsegmentation==0.30.0
 ```
 Then, install the MMDetection3D package in another directory you want:
 ```bash
-git clone https://github.com/open-mmlab/mmdetection3d.git
+git clone https://github.com/open-mmlab/mmdetection3d.git # 1.0.0rc6
 cd mmdetection3d
 pip install -e .
 ```
