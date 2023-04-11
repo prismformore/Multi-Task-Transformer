@@ -84,8 +84,9 @@ mim install mmsegmentation==0.30.0
 ```
 Then, install the MMDetection3D package in another directory you want:
 ```bash
-git clone https://github.com/open-mmlab/mmdetection3d.git # 1.0.0rc6
+git clone https://github.com/open-mmlab/mmdetection3d.git
 cd mmdetection3d
+git checkout 1.0  # 1.0.0rc6
 pip install -e .
 ```
 
