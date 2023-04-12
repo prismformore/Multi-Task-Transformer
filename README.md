@@ -6,7 +6,7 @@
 
 ##  :scroll: Introduction
 
-This repository provides codes and models for two powerful multi-task transformer models for scene understanding:
+This repository provides codes and models for two powerful multi-task transformer models for scene understanding. Please check the following pages for details:
 
 
 > [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [TaskPrompter: Spatial-Channel Multi-Task Prompting for Dense Scene Understanding](./TaskPrompter/README.md). 
