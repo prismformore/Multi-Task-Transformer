@@ -150,7 +150,6 @@ def vis_pred_for_one_task(p, sample, output, save_dir, task):
                 pass
             elif task == 'depth':
                 arr = arr.squeeze()
-                arr = arr ** 0.15 # NEED TO take a "root" of the values because the original one varaince is so large that the visualization is bad.
                 plt.imsave(os.path.join(save_dir, '{}_{}.png'.format(im_name, task)), arr, cmap='jet')
                 continue
             arr_uint8 = arr.astype(np.uint8)
