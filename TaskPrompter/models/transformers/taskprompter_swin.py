@@ -620,8 +620,8 @@ class TaskPrompterSwin(nn.Module):
         self.fea_decode_chan = nn.ModuleList()
         for i_layer in range(self.num_layers):
             cur_embed_dim = p.backbone_channels[i_layer]
-            tar_dim = p.backbone_channels[i_layer]
-            final_embed_dim = p.backbone_channels[i_layer]
+            tar_dim = p.level_embed_dim #p.backbone_channels[i_layer]
+            final_embed_dim = p.final_embed_dim # p.backbone_channels[i_layer]
             prompt_dim = num_heads[i_layer]*p.prompt_len
             self.fea_fuse.append(nn.ModuleDict())
             self.fea_decode_spa.append(nn.ModuleDict())
@@ -631,7 +631,8 @@ class TaskPrompterSwin(nn.Module):
                 self.fea_decode_spa[i_layer][task] = nn.Sequential(nn.Conv2d(cur_embed_dim, tar_dim, kernel_size=1, padding=0))
                 self.fea_decode_chan[i_layer][task] = nn.Sequential(nn.Conv2d(cur_embed_dim, tar_dim, kernel_size=1, padding=0))
 
-        self.multi_scale_fuse = nn.ModuleDict({t: nn.Conv2d(sum(p.backbone_channels), p.final_embed_dim, kernel_size=3, padding=1) for t in p.TASKS.NAMES if t!='3ddet'})
+        # self.multi_scale_fuse = nn.ModuleDict({t: nn.Conv2d(sum(p.backbone_channels), p.final_embed_dim, kernel_size=3, padding=1) for t in p.TASKS.NAMES if t!='3ddet'})
+        self.multi_scale_fuse = nn.ModuleDict({t: nn.Conv2d(p.final_embed_dim, p.final_embed_dim, kernel_size=3, padding=1) for t in p.TASKS.NAMES if t!='3ddet'})
 
         # build layers
         layers = []
@@ -709,8 +710,10 @@ class TaskPrompterSwin(nn.Module):
                 new_task_fea[task] = task_fea[task]
             else:
                 target_scale = task_fea[task][0].shape[-2:]
-                _task_fea = torch.cat([F.interpolate(_, target_scale, mode=INTERPOLATE_MODE) for _ in task_fea[task]], dim=1)
+                # _task_fea = torch.cat([F.interpolate(_, target_scale, mode=INTERPOLATE_MODE) for _ in task_fea[task]], dim=1)
+                _task_fea = sum([F.interpolate(_, target_scale, mode=INTERPOLATE_MODE) for _ in task_fea[task]])
                 _task_fea = self.multi_scale_fuse[task](_task_fea)
+                # _task_fea = F.interpolate(_task_fea, scale_factor=2, mode=INTERPOLATE_MODE, align_corners=False)
                 new_task_fea[task] =  _task_fea
 
         return new_task_fea, info
@@ -735,6 +738,8 @@ class TaskPrompterSwin(nn.Module):
                 cur_head_attn = cur_attn_weight[:, hea:hea+1, :, :]
                 cur_task_fea.append(cur_head_attn * x[:, head_channel_no*hea:head_channel_no*(hea+1), :, :])
             cur_task_fea = torch.cat(cur_task_fea, dim=1) + x
+            if task != '3ddet':
+                cur_task_fea = F.interpolate(cur_task_fea, scale_factor=2, mode=INTERPOLATE_MODE, align_corners=False)
             cur_task_fea = self.fea_decode_spa[il][task](cur_task_fea)
             task_fea[task] = cur_task_fea
 
@@ -756,6 +761,8 @@ class TaskPrompterSwin(nn.Module):
                     cur_row.append(_attn * _patch)
                 cur_task_fea.append(torch.cat(cur_row, dim=3))
             cur_task_fea = torch.cat(cur_task_fea, dim=2) + x
+            if task != '3ddet':
+                cur_task_fea = F.interpolate(cur_task_fea, scale_factor=2, mode=INTERPOLATE_MODE, align_corners=False)
             cur_task_fea = self.fea_decode_chan[il][task](cur_task_fea)
             chan_task_fea[task] = cur_task_fea
 

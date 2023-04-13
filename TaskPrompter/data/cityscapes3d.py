@@ -50,7 +50,7 @@ def imresize(img, size, mode, resample):
     return _img
 
 class CITYSCAPES3D(data.Dataset):
-    def __init__(self, root, split=["train"], is_transform=False,
+    def __init__(self, p, root, split=["train"], is_transform=False,
                  img_size=[1024, 2048], augmentations=None, task_list=['semseg', 'depth', '3ddet'], ignore_index=255):
 
         if isinstance(split, str):
@@ -66,6 +66,7 @@ class CITYSCAPES3D(data.Dataset):
         self.augmentations = augmentations
         self.n_classes = 19
         self.img_size = img_size 
+        self.dd_label_map_size = p.dd_label_map_size
 
         self.task_flags = {'semseg': True, 'insseg': False, 'depth': True}
         self.task_list = task_list
@@ -90,8 +91,7 @@ class CITYSCAPES3D(data.Dataset):
 
         self.void_classes = [0, 1, 2, 3, 4, 5, 6, 9, 10, 14, 15, 16, 18, 29, 30, -1]
         self.valid_classes = [7, 8, 11, 12, 13, 17, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 31, 32, 33]
-        self.no_instances =  [7, 8, 11, 12, 13, 17, 19, 20, 21, 22, 23]
-        self.class_names = ['unlabelled', 'road', 'sidewalk', 'building', 'wall', 'fence',\
+        self.class_names = ['road', 'sidewalk', 'building', 'wall', 'fence',\
                             'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain',\
                             'sky', 'person', 'rider', 'car', 'truck', 'bus', 'train', \
                             'motorcycle', 'bicycle']
@@ -139,6 +139,7 @@ class CITYSCAPES3D(data.Dataset):
         sample = {'image': img}
         sample['meta'] = {'img_name': img_path.split('.')[0].split('/')[-1],
                         'img_size': (img.shape[0], img.shape[1]),
+                        'dd_label_map_size': self.dd_label_map_size,
                         'scale_factor': np.array([self.img_size[1]/img.shape[1], self.img_size[0]/img.shape[0]]), # in xy order
                         }
 
@@ -147,12 +148,21 @@ class CITYSCAPES3D(data.Dataset):
             sample['semseg'] = lbl
 
         if 'depth' in self.task_list:
-            depth = np.array(imageio.imread(depth_path) , dtype=np.float32) # disparity
-            camera = json.load(open(camera_path))
+            depth = cv2.imread(depth_path, cv2.IMREAD_UNCHANGED).astype(np.float32) # disparity
 
-            # The model should directly regress the depth value instead of disparity. Based on the official implementation: https://github.com/mcordts/cityscapesScripts/issues/55
             depth[depth>0] = (depth[depth>0] - 1) / 256 # disparity values
-            depth[depth>0] = camera["extrinsic"]["baseline"] * camera["intrinsic"]["fx"] / depth[depth>0] # real depth
+
+            # make the invalid idx to -1
+            depth[depth==0] = -1
+
+            # assign the disparity of sky to zero
+            sky_mask = lbl == 10
+            depth[sky_mask] = 0
+
+            if False:
+                # The model directly regress the depth value instead of disparity. Based on the official implementation: https://github.com/mcordts/cityscapesScripts/issues/55
+                camera = json.load(open(camera_path))
+                depth[depth>0] = camera["extrinsic"]["baseline"] * camera["intrinsic"]["fx"] / depth[depth>0] # real depth
             sample['depth'] = depth
 
         if 'insseg' in self.task_list:
@@ -196,14 +206,16 @@ class CITYSCAPES3D(data.Dataset):
         if 'semseg' in self.task_list:
             classes = np.unique(lbl)
             lbl = lbl.astype(float)
-            if self.img_size != self.ori_img_size:
-                lbl = imresize(lbl, (int(self.img_size[0]), int(self.img_size[1])), 'F', Image.NEAREST) # TODO(ozan) /8 is quite hacky
+            # if self.img_size != self.ori_img_size:
+            if self.dd_label_map_size != self.ori_img_size:
+                lbl = imresize(lbl, (int(self.dd_label_map_size[0]), int(self.dd_label_map_size[1])), 'F', Image.NEAREST) # TODO(ozan) /8 is quite hacky
             lbl = lbl.astype(int)
 
         if 'depth' in self.task_list:
-            if self.img_size != self.ori_img_size:
-                depth = imresize(depth, (int(self.img_size[0]), int(self.img_size[1])), 'F', Image.NEAREST)
-                depth = depth * self.label_dw_ratio
+            # if self.img_size != self.ori_img_size:
+            if self.dd_label_map_size != self.ori_img_size:
+                depth = imresize(depth, (int(self.dd_label_map_size[0]), int(self.dd_label_map_size[1])), 'F', Image.NEAREST)
+                # depth = depth * self.label_dw_ratio
             depth = np.expand_dims(depth, axis=0)
             depth = torch.from_numpy(depth).float()
             sample['depth'] = depth

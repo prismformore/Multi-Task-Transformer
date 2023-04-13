@@ -6,13 +6,14 @@ out_dir: "../"
 train_db_name: Cityscapes3D
 val_db_name: Cityscapes3D
 trBatch: 1
-valBatch: 8
+valBatch: 4
 nworkers: 2
 ignore_index: 255
 
 # downsample feature resolution
 fea_ds_ratio: 1
 img_ds_ratio: 0.75
+dd_label_map_size: [512, 1024]
 
 # Optimizer and scheduler
 intermediate_supervision: False
@@ -24,13 +25,14 @@ optimizer_kwargs:
    lr: 2.e-5
 scheduler: poly
 grad_clip_param: {'max_norm': 10, 'norm_type': 2}
-ignore_invalid_area_depth: False
+ignore_invalid_area_depth: True
 
 # Model
 model: TaskPrompter
 backbone: TaskPrompter_swinB
-head:  conv
-final_embed_dim: 512
+head:  deconv
+level_embed_dim: 256
+final_embed_dim: 450
 prompt_len: 1
 chan_embed_dim: 256
 chan_nheads: 1

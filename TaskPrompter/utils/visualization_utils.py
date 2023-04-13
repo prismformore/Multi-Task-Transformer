@@ -176,8 +176,6 @@ def vis_pred_for_one_task(p, sample, output, save_dir, task):
                 pass
             elif task == 'depth':
                 arr = arr.squeeze()
-                arr = arr ** 0.15 # for visualization
-                # arr = np.log(arr+1)
                 arr = (arr - arr.min()) / (arr.max() - arr.min()) * 255
                 arr_colored = cv2.applyColorMap((arr).astype(np.uint8), cv2.COLORMAP_JET)
                 filepath = os.path.join(save_dir, '{}_{}.png'.format(im_name, task))

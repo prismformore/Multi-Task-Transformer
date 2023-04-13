@@ -13,6 +13,7 @@ class TaskPrompterWrapper(nn.Module):
 
         self.backbone = backbone
         self.heads = heads 
+        self.target_size = p.dd_label_map_size
 
     def forward(self, x):
         img_size = x.size()[-2:]
@@ -26,7 +27,7 @@ class TaskPrompterWrapper(nn.Module):
         for t in self.tasks:
             _task_fea = task_features[t]
             if t != '3ddet':
-                out[t] = F.interpolate(self.heads[t](_task_fea), img_size, mode=INTERPOLATE_MODE)
+                out[t] = F.interpolate(self.heads[t](_task_fea), self.target_size, mode=INTERPOLATE_MODE)
             else:
                 out[t] = self.heads[t](_task_fea)
             

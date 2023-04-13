@@ -696,3 +696,20 @@ class ConvHead(nn.Module):
 
     def forward(self, x):
         return self.linear_pred(self.mt_proj(x))
+    
+class DEConvHead(nn.Module):
+    def __init__(self, in_channels, num_classes):
+        super().__init__()
+
+        self.mt_proj = nn.Sequential(
+            nn.ConvTranspose2d(in_channels, in_channels//2, 2, stride=2, padding=0), BatchNorm2d(in_channels//2), nn.GELU(),
+            nn.Conv2d(in_channels//2, in_channels//2, 3, padding=1), BatchNorm2d(in_channels//2), nn.GELU()
+            )
+
+        self.linear_pred = nn.Conv2d(in_channels//2, num_classes, kernel_size=1)
+        trunc_normal_(self.mt_proj[0].weight, std=0.02)
+        trunc_normal_(self.mt_proj[3].weight, std=0.02)
+        trunc_normal_(self.linear_pred.weight, std=0.02)
+
+    def forward(self, x):
+        return self.linear_pred(self.mt_proj(x))

@@ -145,7 +145,7 @@ def get_train_dataset(p, transforms=None):
         
     if db_name == 'Cityscapes3D':
         from data.cityscapes3d import CITYSCAPES3D
-        database = CITYSCAPES3D(p.db_paths['Cityscapes3D'], split=["train"], is_transform=True,
+        database = CITYSCAPES3D(p, p.db_paths['Cityscapes3D'], split=["train"], is_transform=True,
                     img_size=p.TRAIN.SCALE, augmentations=None, task_list=p.TASKS.NAMES)
 
     return database
@@ -225,7 +225,7 @@ def get_loss(p, task=None):
 
     elif task == 'depth':
         from losses.loss_functions import L1Loss
-        criterion = L1Loss(ignore_invalid_area=p.ignore_invalid_area_depth, ignore_index=0)
+        criterion = L1Loss(ignore_invalid_area=p.ignore_invalid_area_depth, ignore_index=-1)
 
     else:
         criterion = None
