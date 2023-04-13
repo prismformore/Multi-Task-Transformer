@@ -188,7 +188,7 @@ def get_test_dataset(p, transforms=None):
         
     elif db_name == 'Cityscapes3D':
         from data.cityscapes3d import CITYSCAPES3D
-        database = CITYSCAPES3D(p.db_paths['Cityscapes3D'], split=["val"], is_transform=True,
+        database = CITYSCAPES3D(p, p.db_paths['Cityscapes3D'], split=["val"], is_transform=True,
                     img_size=p.TEST.SCALE, augmentations=None, task_list=p.TASKS.NAMES)
 
     else:
