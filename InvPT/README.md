@@ -141,8 +141,3 @@ Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any ques
 
 # :+1: Acknowledgement
 This repository borrows partial codes from [MTI-Net](https://github.com/SimonVandenhende/Multi-Task-Learning-PyTorch) and [ATRC](https://github.com/brdav/atrc).
-
-# :business_suit_levitating: License
-[Creative commons license](http://creativecommons.org/licenses/by-nc/4.0/) which allows for personal and research use only. 
-
-For commercial useage, please contact the authors. 
