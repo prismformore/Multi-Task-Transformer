@@ -65,6 +65,10 @@ def get_head(p, backbone_channels, task):
         from models.transformers.taskprompter import ConvHead
         return ConvHead(backbone_channels, p.TASKS.NUM_OUTPUT[task])
 
+    elif p['head'] == 'deconv':
+        from models.transformers.taskprompter import DEConvHead
+        return DEConvHead(backbone_channels, p.TASKS.NUM_OUTPUT[task])
+
     else:
         raise NotImplementedError
 
