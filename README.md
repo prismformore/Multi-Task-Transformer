@@ -43,8 +43,3 @@ Please do consider :star2: star our project to share with your community if you 
 
 # Contact
 Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any questions.
-
-# License
-[Creative commons license](http://creativecommons.org/licenses/by-nc/4.0/) which allows for personal and research use only. 
-
-For commercial useage, please contact the authors. 
