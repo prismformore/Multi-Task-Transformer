@@ -188,6 +188,8 @@ For tools to visualize the predictions, please check ```utils/visualization_util
 
 
 # :hugs: Cite
+Please consider :star2: star our project to share with your community if you find this repository helpful!
+
 BibTex:
 ```
 @InProceedings{taskprompter2023,
@@ -197,7 +199,6 @@ BibTex:
   year={2023}
 }
 ```
-Please consider :star2: star our project to share with your community if you find this repository helpful!
 
 # :blush: Contact
 Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any questions.
@@ -205,7 +206,3 @@ Please contact [Hanrong Ye](https://sites.google.com/site/yhrspace/) if any ques
 # :+1: Acknowledgement
 This repository is built upon InvPT. We borrow partial codes from [MMDetection3D](https://github.com/open-mmlab/mmdetection3d/blob/master/docs/en/getting_started.md).
 
-# :business_suit_levitating: License
-[Creative commons license](http://creativecommons.org/licenses/by-nc/4.0/) which allows for personal and research use only. 
-
-For commercial useage, please contact the authors. 
