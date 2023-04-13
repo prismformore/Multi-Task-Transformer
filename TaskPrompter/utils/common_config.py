@@ -33,12 +33,12 @@ def get_backbone(p):
 
     elif p['backbone'] == 'TaskPrompter_swinB':
         from models.transformers.taskprompter_swin import  taskprompter_swin_base_patch4_window12_384
-        backbone_channels = [256, 512, 1024, 1024]
-        p.backbone_channels = backbone_channels
+        p.backbone_channels = [256, 512, 1024, 1024]
         backbone_stride = [8, 16, 32, 32]
         img_h, img_w = p.TRAIN.SCALE
         p.ori_spatial_dim = [[img_h//st, img_w//st] for st in backbone_stride]
         backbone = taskprompter_swin_base_patch4_window12_384(pretrained=True, p=p, drop_path_rate=0.15, img_size=p.TRAIN.SCALE)
+        backbone_channels = [p.final_embed_dim  for _ in range(4)]
 
     else:
         raise NotImplementedError
