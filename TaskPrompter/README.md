@@ -168,7 +168,7 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 ### Download pre-trained models
 |Version | Dataset | Download | 3D det (mDS) | Depth (RMSE) | Segmentation (mIoU) |  Human parsing (mIoU) | Saliency (maxF) | Normals (mErr) | Boundary (odsF) | 
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| TaskPrompter (Swin-B)| Cityscapes-3D | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EaryGO5Z_vdGuVUEVgIrKNQBm_f80765fJKpjo8Bd_YJiA?e=uPlG0t) | 32.36 | 4.67 | 79.38 | - | - | - | - |
+| TaskPrompter (Swin-B)| Cityscapes-3D | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EaryGO5Z_vdGuVUEVgIrKNQBm_f80765fJKpjo8Bd_YJiA?e=uPlG0t) | 32.36 | 4.67 (disparity) | 79.38 | - | - | - | - |
 | TaskPrompter (ViT-L)| PASCAL-Context | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EYX13WbZOPRHnsV5fPeolEYBeafey2PYnTpd7jLFlGDc5w?e=Yg4enV) | - | - |80.79 | 68.81 |84.26 | 13.58 | 73.80 |
 | TaskPrompter (ViT-B)| PASCAL-Context | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/Ea4nDFZaJwhDvllsHt81ZJsBkvmuBBpT8JZGiXUon7xScA?e=QsWoSj) | - | - | 78.63 | 66.93 |84.77 | 13.42 | 73.60 |
 | TaskPrompter (ViT-L) | NYUD-v2 | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EQx8Ub49_ahKnDQJEv9Sjz8BrhQ33GyFHaas8eQaq0uVcA?e=DnT2zg) | - | 0.5062 | 55.90 | - | - | 18.58 | 77.70 |
