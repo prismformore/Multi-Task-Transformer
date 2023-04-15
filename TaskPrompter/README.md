@@ -7,11 +7,10 @@
 <img src="https://user-images.githubusercontent.com/14089338/229339707-5da4ec14-8fa5-44e4-bd73-d0859cdc7747.png" alt="taskprompter" style="width: 60%; min-width: 300px; display: block; margin: auto; background-color: transparent;">
 </p>
 
-
 # :fire: [ICLR2023] [TaskPrompter: Spatial-Channel Multi-Task Prompting for Dense Scene Understanding](https://openreview.net/pdf?id=-CwPopPJda)
 
 <p align="center">
-  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/228763472-04bdacf2-cd7d-47b8-8afb-f2c8a52a96d5.gif" width="900">
+  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/232183861-32ebf762-77ce-4023-8577-8b955369a419.gif" width="900">
   <br>
     <em>Joint 2D-3D multi-task scene understanding on Cityscapes-3D: 3D detection, segmentation, and depth estimation.</em>
 </p>
@@ -41,18 +40,18 @@ Please check the ICLR 2023 [paper](https://openreview.net/pdf?id=-CwPopPJda) for
 # :tv: Demo
 <table class="center">
 <tr>
-  <td><img src="https://user-images.githubusercontent.com/14089338/229057421-e89fe102-988f-4faa-ab43-38dd0224f33c.gif"></td>
-  <td><img src="https://user-images.githubusercontent.com/14089338/229057434-d887417c-805a-4a73-bbba-1d18a3f18baf.gif"></td>
+  <td><img src="https://user-images.githubusercontent.com/14089338/232184456-74ad4a11-5cc9-4c74-8ddf-2cd4faba0e2b.gif"></td>
+  <td><img src="https://user-images.githubusercontent.com/14089338/232184641-e6a90d7c-e1c2-4b94-bd56-3d87fc6c237d.gif"></td>
 </tr>
 <tr>
-    <td><img src="https://user-images.githubusercontent.com/14089338/229057445-c9ab7ac1-f898-4b99-a579-287a0f3986e8.gif"></td>
-    <td><img src="https://user-images.githubusercontent.com/14089338/229059776-611611ff-dd14-41a9-964d-1258a5a7c478.gif"></td>
+    <td><img src="https://user-images.githubusercontent.com/14089338/232185451-911e90a7-7b3f-4082-9b80-b61822a4caad.gif"></td>
+    <td><img src="https://user-images.githubusercontent.com/14089338/232187432-0e9c1895-2f99-4867-a462-7ea58f928e5a.gif"></td>
 </tr>
 </table>
 
 
 To qualitatively demonstrate the powerful multi-task performance of TaskPrompter, we visualizes its predictions on Cityscapes-3D. 
-**Watch the full version of demo [here](https://youtu.be/-eAvl8CLV1g)!**
+**Watch the full version of demo [here](https://youtu.be/lDnbkM3EwVM)!**
 
 # News
 :triangular_flag_on_post: **Updates** 
