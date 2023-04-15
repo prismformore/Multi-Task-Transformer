@@ -10,7 +10,7 @@
 # :fire: [ICLR2023] [TaskPrompter: Spatial-Channel Multi-Task Prompting for Dense Scene Understanding](https://openreview.net/pdf?id=-CwPopPJda)
 
 <p align="center">
-  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/232183861-32ebf762-77ce-4023-8577-8b955369a419.gif" width="900">
+  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/232197965-8936504d-8ce4-450b-a281-069f5c2c8205.gif" width="900">
   <br>
     <em>Joint 2D-3D multi-task scene understanding on Cityscapes-3D: 3D detection, segmentation, and depth estimation.</em>
 </p>
