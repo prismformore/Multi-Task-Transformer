@@ -55,6 +55,7 @@ To qualitatively demonstrate the powerful multi-task performance of TaskPrompter
 
 # News
 :triangular_flag_on_post: **Updates** 
+- :white_check_mark: April, 2023: Release the edge evaluation code on https://github.com/prismformore/Boundary-Detection-Evaluation-Tools
 - :white_check_mark: April, 2023: Update codes and model checkpoints for Cityscapes-3D. Now we evaluate disparity instead of GT depth, which is a more popular setting on Cityscapes. We also slightly improve the model for higher efficiency and performance. 
 - :white_check_mark: April, 2023: Release TaskPrompter models trained on Cityscapes-3D, PASCAL-Context, and NYUD-v2 dataset!
 
