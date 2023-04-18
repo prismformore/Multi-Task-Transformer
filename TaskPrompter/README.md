@@ -159,6 +159,8 @@ The training script itself includes evaluation.
 For inferring with pre-trained models, you need to change ```run_mode``` in ```run*.sh``` to ```infer```.
 
 ### **Special evaluation for boundary detection**
+Use the evaluation tools in this [repo](https://github.com/prismformore/Boundary-Detection-Evaluation-Tools).
+
 We follow previous works and use Matlab-based [SEISM](https://github.com/jponttuset/seism) project to compute the optimal dataset F-measure scores. The evaluation code will save the boundary detection predictions on the disk. 
 
 Specifically, identical to ATRC and ASTMT, we use [maxDist](https://github.com/jponttuset/seism/blob/6af0cad37d40f5b4cbd6ca1d3606ec13b176c351/src/scripts/eval_method.m#L34)=0.0075 for PASCAL-Context and maxDist=0.011 for NYUD-v2. Thresholds for HED (under seism/parameters/HED.txt) are used. ```read_one_cont_png``` is used as IO function in SEISM.
