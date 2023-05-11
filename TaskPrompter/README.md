@@ -200,6 +200,13 @@ BibTex:
   booktitle={ICLR},
   year={2023}
 }
+
+@article{ye2023joint,
+  title={Joint 2D-3D Multi-Task Learning on Cityscapes-3D: 3D Detection, Segmentation, and Depth Estimation},
+  author={Ye, Hanrong and Xu, Dan},
+  journal={arXiv preprint arXiv:2304.00971},
+  year={2023}
+}
 ```
 
 # :blush: Contact
