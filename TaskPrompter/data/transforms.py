@@ -293,9 +293,9 @@ class AddIgnoreRegions:
                 if ((tmp == 0) | (tmp == 255)).all():
                     tmp = np.full(tmp.shape, 255, dtype=tmp.dtype)
                     sample[elem] = tmp
-            # elif elem == 'depth': # We use 0 as ignore index for depth
-            #     tmp[tmp == 0] = 255
-            #     sample[elem] = tmp
+            elif elem == 'depth': # We use -1 instead of 0 as ignore index for depth. This should only be applied to NYUD dataset.
+                tmp[tmp == 0] = -1
+                sample[elem] = tmp
         return sample
 
     def __repr__(self):
