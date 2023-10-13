@@ -9,13 +9,13 @@
 This repository provides codes and models for two powerful multi-task transformer models for scene understanding. Please check the following pages for details:
 
 
-> [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [TaskPrompter: Spatial-Channel Multi-Task Prompting for Dense Scene Understanding](./TaskPrompter/README.md). 
+> [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [TaskPrompter: Spatial-Channel Multi-Task Prompting for Dense Scene Understanding](https://github.com/prismformore/Multi-Task-Transformer/tree/main/TaskPrompter). 
 > ICLR 2023
 <p align="center">
   <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/232197965-8936504d-8ce4-450b-a281-069f5c2c8205.gif" width="900">
 </p>
 
-> [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [Inverted Pyramid Multi-task Transformer for Dense Scene Understanding](./InvPT/README.md). 
+> [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [Inverted Pyramid Multi-task Transformer for Dense Scene Understanding](https://github.com/prismformore/Multi-Task-Transformer/tree/main/InvPT). 
 > ECCV 2022
 
 <p align="center">
