@@ -67,7 +67,7 @@ We inherit the environement of InvPT, and here is a successful path to deploy it
 ```bash
 conda create -n taskprompter python=3.7
 conda activate taskprompter
-pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard
+pip install tqdm Pillow easydict pyyaml imageio scikit-image tensorboard termcolor matplotlib
 pip install opencv-python==4.5.4.60 setuptools==59.5.0
 
 # Example of installing pytorch-1.10.0 
