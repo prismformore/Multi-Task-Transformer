@@ -1,0 +1,55 @@
+# Setup
+version_name: pascal_onelabel
+setup: multi_task
+
+# Database
+train_db_name: PASCALContext
+val_db_name: PASCALContext
+trBatch: 6
+valBatch: 6
+nworkers: 2
+
+# Optimizer and scheduler
+val_interval: 1000
+epochs: 100
+max_iter: 999999999 #not used
+optimizer: adam
+optimizer_kwargs:
+   lr: 0.00002
+   weight_decay: 0.000001
+scheduler: poly
+
+# Model
+model: DiffusionNet
+backbone: resnet18
+backbone_kwargs:
+   pretrained: True
+head: mlp
+
+# Tasks
+task_dictionary:
+   include_semseg: True
+   include_human_parts: True
+   include_sal: True
+   include_edge: True
+   include_normals: True
+   edge_w: 0.95
+
+# Loss kwargs
+loss_kwargs:
+   loss_scheme: baseline
+   loss_weights:
+       semseg: 1.0
+       human_parts: 2.0
+       sal: 5.0
+       edge: 50.0
+       normals: 10.0
+
+grad_clip_param: {'max_norm': 10, 'norm_type': 2} 
+ignore_index: 255
+
+# training setting
+ssl_type: onelabel # randomlabels
+
+# diffusion
+num_timesteps: 2

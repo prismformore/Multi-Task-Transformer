@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=2 python -m torch.distributed.launch --nproc_per_node=1 --nnodes=1 --node_rank=0 --master_addr="0.0.0.0" --master_port=$((RANDOM%10000+12000)) main.py
