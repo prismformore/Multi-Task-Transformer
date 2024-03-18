@@ -58,6 +58,8 @@ tar xfvz PASCALContext.tar.gz
 ## 3. Train the model
 The config files are defined in ```./configs```.
 
+Edge evaluation code: https://github.com/prismformore/Boundary-Detection-Evaluation-Tools
+
 Before start training, you need to change the ```.sh``` files for different configuation. We use [DDP](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) for multi-gpu training by default. You may need to read realted documents before setting the gpu numbers. 
 
 PASCAL-Context:
