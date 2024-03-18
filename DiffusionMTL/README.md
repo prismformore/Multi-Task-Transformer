@@ -2,13 +2,10 @@
 
 <p align="center">
     <a href="https://openreview.net/pdf?id=-CwPopPJda">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://youtu.be/lDnbkM3EwVM">Demo</a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="https://arxiv.org/abs/2304.00971">Cityscapes-3D Supp. (arXiv)</a>
-  
 </p>  
 
 ##  :scroll: Introduction
-This repository contains the codes and models for DiffusionMTL, our multi-task scene understanding model trained with partially-annotated data. 
+This repository contains the codes and models for DiffusionMTL, our multi-task scene understanding model trained with partially annotated data. 
 
 - We reformulate the partially-labeled multi-task dense prediction as a pixel-level denoising problem.
 - To exploit multi-task consistency in denois- ing, we further introduce a Multi-Task Conditioning strategy, which can implicitly utilize the complementary nature of the tasks to help learn the unlabeled tasks, leading to an improvement in the denoising performance of the different tasks.
@@ -16,14 +13,11 @@ This repository contains the codes and models for DiffusionMTL, our multi-task s
 
 Please check the CVPR 2024 [paper](https://openreview.net/pdf?id=-CwPopPJda) for more details.
 <p align="center">
-  <img alt="img-name" src="https://user-images.githubusercontent.com/14089338/228757124-2b0d3272-6c62-4271-81be-ce29ebc6ebab.png" width="800">
+  <img alt="img-name" src="https://github.com/prismformore/Multi-Task-Transformer/assets/14089338/5862c11f-cd1b-464c-b04e-28a729dde7d4" width="600">
   <br>
     <em>Framework overview of the proposed TaskPrompter for multi-task scene understanding.</em>
 </p>
 
-
-To qualitatively demonstrate the powerful multi-task performance of TaskPrompter, we visualizes its predictions on Cityscapes-3D. 
-**Watch the full version of demo [here](https://youtu.be/lDnbkM3EwVM)!**
 
 # News
 :triangular_flag_on_post: **Updates** 
@@ -77,20 +71,7 @@ To faciliate the community to reproduce our SoTA results, we re-train our best p
 ### Download pre-trained models
 |Version | Dataset | Download | Segmentation (mIoU) |  Human parsing (mIoU) | Saliency (maxF) | Normals (mErr) | Boundary (odsF) | 
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| DiffusionMTL (Feature Diffusion)| PASCAL-Context (one-label) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/EYX13WbZOPRHnsV5fPeolEYBeafey2PYnTpd7jLFlGDc5w?e=Yg4enV) | 57.16 | 59.28 |78.00 | 16.17 | 64.60 |
-
-### Infer with the pre-trained models
-Simply set the pre-trained model path in ```run.sh``` by adding ```--trained_model MODEL_PATH```.
-You also need to change ```run_mode``` in ```run.sh``` to ```infer```.
-
-### Generate multi-task predictions form any image
-To generate multi-task predictions from an image with the pre-trained model on PASCAL-Context and Cityscapes-3D (only support camera parameters used in "stuttgart" of Cityscapes), please use ```inference.py```. An example running script is:
-```
-CUDA_VISIBLE_DEVICES=0 python inference.py --config_path=CONFIG_PATH --image_path=IMAGE_PATH --ckp_path=CKP_PATH --save_dir=SAVE_DIR
-```
-
-For tools to visualize the predictions, please check ```utils/visualization_utils.py```.
-
+| DiffusionMTL (Feature Diffusion)| PASCAL-Context (one-label) | [onedrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/hyeae_connect_ust_hk/ERxytOgnrZpBhBkaJNdBTlUBHNKu7E92MHeNRb7jQshhuw?e=wCCle4) | 57.16 | 59.28 |78.00 | 16.17 | 64.60 |
 
 # :hugs: Cite
 Please consider :star2: star our project to share with your community if you find this repository helpful!
