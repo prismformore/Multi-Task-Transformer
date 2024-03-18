@@ -2,11 +2,18 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/joint-2d-3d-multi-task-learning-on-cityscapes/3d-object-detection-on-cityscapes-3d)](https://paperswithcode.com/sota/3d-object-detection-on-cityscapes-3d?p=joint-2d-3d-multi-task-learning-on-cityscapes)
 ![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)
 
-# :fire: [ICLR2023, ECCV2022] Powerful Multi-Task Transformers for Scene Understanding
+# :fire: [CVPR2024, ICLR2023, ECCV2022] Powerful Multi-Task Models for Scene Understanding
 
 ##  :scroll: Introduction
 
-This repository provides codes and models for two powerful multi-task transformer models for scene understanding. Please check the following pages for details:
+This repository provides codes and models for three powerful multi-task models for scene understanding. Please check the following pages for details:
+
+> [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [DiffusionMTL: Learning Multi-Task Denoising Diffusion Model from Partially Annotated Data](https://github.com/prismformore/Multi-Task-Transformer/tree/main/DiffusionMTL). 
+> CVPR 2024
+<p align="center">
+  <img alt="img-name" src="https://github.com/prismformore/Multi-Task-Transformer/assets/14089338/5862c11f-cd1b-464c-b04e-28a729dde7d4" width="600">
+</p>
+
 
 
 > [Hanrong Ye](https://sites.google.com/site/yhrspace/) and [Dan Xu](https://www.danxurgb.net/), [TaskPrompter: Spatial-Channel Multi-Task Prompting for Dense Scene Understanding](https://github.com/prismformore/Multi-Task-Transformer/tree/main/TaskPrompter). 
@@ -43,6 +50,12 @@ BibTex:
   author={Ye, Hanrong and Xu, Dan},
   journal={arXiv preprint arXiv:2306.04842},
   year={2023}
+}
+@InProceedings{diffusionmtl,
+  title={DiffusionMTL: Learning Multi-Task Denoising Diffusion Model from Partially Annotated Data},
+  author={Ye, Hanrong and Xu, Dan},
+  booktitle={CVPR},
+  year={2024}
 }
 ```
 Please do consider :star2: star our project to share with your community if you find this repository helpful!
