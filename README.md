@@ -41,8 +41,8 @@ BibTex:
 @article{ye2023invpt++,
   title={InvPT++: Inverted Pyramid Multi-Task Transformer for Visual Scene Understanding},
   author={Ye, Hanrong and Xu, Dan},
-  journal={arXiv preprint arXiv:2306.04842},
-  year={2023}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024}
 }
 ```
 Please do consider :star2: star our project to share with your community if you find this repository helpful!
